@@ -33,6 +33,8 @@ describe('Test helper functions', () => {
     expect(arrayToObject(['a', 'b'])).toEqual([{"a":0}, {"b":0}]);
   });
 
-  
+    test('Occurrences in an array', () => {
+        expect(getOccurrence(["a", "a", "b"], "a")).toBe(2);
+    });
 
 });
