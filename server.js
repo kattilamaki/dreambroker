@@ -3,30 +3,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-
-app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.post("/analyze", (req, res) => {
   const str = req.body.text;
-  const totalLength = str.length;
-  const withoutSpaces = removeSpaces(str);
-  const wordCount = getWordCount(str);
-  const result = getCharacterOccurrences(str);
 
   res.json({
     textLength: {
-      withSpaces: totalLength,
-      withoutSpaces: withoutSpaces.length 
+      withSpaces: str.length,
+      withoutSpaces: removeSpaces(str).length 
     },
-    wordCount: wordCount,
-    characterCount: result
+    wordCount: getWordCount(str),
+    characterCount: getCharacterOccurrences(str)
   });
-})
-
-// Not found middleware
-app.use((req, res, next) => {
-  return next({status: 404, message: 'not found'})
 })
 
 // Error Handling middleware
