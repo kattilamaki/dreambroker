@@ -32,11 +32,11 @@ removeDuplicateCharacters = (arr) => {
 };
 
 // Array values to object array [{"e":0},{"h":0}]
-arrayToObject = (arr) => {
+countCharacterOccurrences = (singleArr, duplicateArr) => {
   let result = [];
-  for (var i = 0; i < arr.length; i++) {
+  for (var i = 0; i < singleArr.length; i++) {
     let obj = {};
-    obj[arr[i]] = 0;
+    obj[singleArr[i]] = getOccurrence(duplicateArr, singleArr[i]);
     result.push(obj);
   }
   return result
@@ -47,3 +47,14 @@ getOccurrence = (array, value) => {
     array.forEach((v) => (v === value && count++));
     return count;
 };
+
+// Accepting string instead of arr
+getCharacterOccurrences = (arr) => {
+  arr = removeSpaces(arr);
+  arr = removeNonLetters(arr);
+  let arr2 = sortLetters(arr);
+  arr = sortLetters(arr);
+  arr = removeDuplicateCharacters(arr);
+  let result = countCharacterOccurrences(arr, arr2);
+  return result
+}

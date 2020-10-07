@@ -12,7 +12,7 @@ app.post("/analyze", (req, res) => {
   const totalLength = str.length;
   const withoutSpaces = removeSpaces(str);
   const wordCount = getWordCount(str);
-  const result = arrayToObject(removeDuplicateCharacters(sortLetters(removeNonLetters(withoutSpaces))));
+  const result = getCharacterOccurrences(str);
 
   res.json({
     textLength: {

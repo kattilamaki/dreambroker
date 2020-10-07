@@ -30,11 +30,15 @@ describe('Test helper functions', () => {
   });
 
   test('Convert array to object array', () => {
-    expect(arrayToObject(['a', 'b'])).toEqual([{"a":0}, {"b":0}]);
+    expect(countCharacterOccurrences(['a', 'b'], ["a", "a", "b"])).toEqual([{"a":2}, {"b":1}]);
   });
 
     test('Occurrences in an array', () => {
         expect(getOccurrence(["a", "a", "b"], "a")).toBe(2);
+    });
+
+    test('Get character occurrences in string', () => {
+      expect(getCharacterOccurrences("good")).toEqual([{"d": 1},{"g": 1}, {"o": 2}]);
     });
 
 });
