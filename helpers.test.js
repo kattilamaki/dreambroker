@@ -17,9 +17,9 @@ describe('Test helper functions', () => {
   });
 
   test('String to alphabetical array', () => {
-    expect(sortLetters('a')).toEqual(['a']);
-    expect(sortLetters('ba')).toEqual(['a', 'b']);
-    expect(sortLetters('bab')).toEqual(['a', 'b', 'b']);
+    expect(sortLettersToArray('a')).toEqual(['a']);
+    expect(sortLettersToArray('ba')).toEqual(['a', 'b']);
+    expect(sortLettersToArray('bab')).toEqual(['a', 'b', 'b']);
   });
 
   test('Remove duplicate characters from array', () => {

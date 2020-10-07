@@ -18,7 +18,7 @@ removeNonLetters = (str) => {
 };
 
 // Given string is returned as sorted array
-sortLetters = (str) => {
+sortLettersToArray = (str) => {
   let arr = str.split('');
   return arr.sort();
 };
@@ -52,14 +52,14 @@ getOccurrence = (array, value) => {
     return count;
 };
 
-// Accepting string instead of arr
-getCharacterOccurrences = (arr) => {
-  arr = arr.toLowerCase();
-  arr = removeSpaces(arr);
-  arr = removeNonLetters(arr);
-  let arr2 = sortLetters(arr);
-  arr = sortLetters(arr);
-  arr = removeDuplicateCharacters(arr);
-  let result = countCharacterOccurrences(arr, arr2);
+// Make actual conversion from str to array listing character counts
+getCharacterOccurrences = (str) => {
+  str = str.toLowerCase();
+  str = removeSpaces(str);
+  str = removeNonLetters(str);
+  let duplicateArray = sortLettersToArray(str);
+  shortArray = sortLettersToArray(str);
+  shortArray = removeDuplicateCharacters(shortArray);
+  let result = countCharacterOccurrences(shortArray, duplicateArray);
   return result
 }
