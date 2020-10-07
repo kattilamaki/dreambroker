@@ -5,7 +5,11 @@ removeSpaces = (str) => {
 
 // Count separate words from given string
 getWordCount = (str) => {
-  return str.trim().split(/\s+/).length;
+  if (str.length === 0) {
+    return 0
+  } else {    
+    return str.trim().split(/\s+/).length;
+  }
 };
 
 // Get rid of non-alphabetic characters
@@ -50,6 +54,7 @@ getOccurrence = (array, value) => {
 
 // Accepting string instead of arr
 getCharacterOccurrences = (arr) => {
+  arr = arr.toLowerCase();
   arr = removeSpaces(arr);
   arr = removeNonLetters(arr);
   let arr2 = sortLetters(arr);

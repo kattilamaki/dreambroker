@@ -7,6 +7,7 @@ describe('Test helper functions', () => {
   });
 
   test('Counting words from given string', () => {
+    expect(getWordCount('')).toBe(0);
     expect(getWordCount('once upon a time')).toBe(4);
     expect(getWordCount('once upon a time 2 be')).toEqual(6);
   });
